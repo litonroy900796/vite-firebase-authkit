@@ -1,11 +1,16 @@
-import "./App.css";
+// src/App.jsx
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import Home from "./pages/Home";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <h1 className="text-red-500">fdfsdf</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="sign-in" element={<Login />} />
+      <Route path="sign-up" element={<SignUp />} />
+      <Route path="*" element={<div>404</div>} />
+    </Routes>
   );
 }
-
-export default App;
