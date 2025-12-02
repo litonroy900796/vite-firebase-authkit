@@ -103,12 +103,12 @@ export default function Login() {
                   >
                     Password
                   </label>
-                  <a
-                    href="#"
+                  <NavLink
+                    to="/forget-password"
                     className="text-sm text-indigo-600 hover:text-indigo-800 font-medium"
                   >
                     Forgot?
-                  </a>
+                  </NavLink>
                 </div>
                 <div className="relative">
                   <input

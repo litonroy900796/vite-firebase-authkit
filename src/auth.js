@@ -5,6 +5,7 @@ import {
   signOut,
   GoogleAuthProvider,
   updateProfile,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 
 import { auth } from "./firebase";
@@ -29,6 +30,15 @@ export const login = (email, password) =>
   signInWithEmailAndPassword(auth, email, password);
 
 export const logout = () => signOut(auth);
+
+export const sendPasswordReset = async (email) => {
+  // eslint-disable-next-line no-useless-catch
+  try {
+    await sendPasswordResetEmail(auth, email);
+  } catch (error) {
+    throw error;
+  }
+};
 
 const provider = new GoogleAuthProvider();
 
