@@ -49,11 +49,11 @@ export default function Home() {
               Welcome
               {user.displayName ? `, ${user.displayName}` : ""}!
             </h1>
-            <p className="text-gray-600 mt-2">{user.email}</p>
+            <p className="text-gray-600 my-4">{user.email}</p>
             <button
               onClick={handleLogout}
               disabled={isLoggingOut}
-              className={`px-6 py-3 rounded-xl font-medium text-white shadow-md transition-all
+              className={`px-6 cursor-pointer py-3 rounded-xl font-medium text-white shadow-md transition-all
             ${
               isLoggingOut
                 ? "bg-gray-400 cursor-not-allowed"
@@ -101,11 +101,6 @@ export default function Home() {
             {error}
           </div>
         )}
-
-        {/* Optional: App Info */}
-        <div className="mt-10 text-gray-500 text-sm">
-          <p>vite-firebase-authkit © {new Date().getFullYear()}</p>
-        </div>
       </div>
     </div>
   );

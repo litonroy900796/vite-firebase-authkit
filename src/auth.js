@@ -4,12 +4,26 @@ import {
   signInWithPopup,
   signOut,
   GoogleAuthProvider,
+  updateProfile,
 } from "firebase/auth";
 
 import { auth } from "./firebase";
 
-export const signup = (email, password) =>
-  createUserWithEmailAndPassword(auth, email, password);
+export const signup = async (email, password, name) => {
+  // প্রথমে user create করুন
+  const userCredential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
+
+  // তারপর profile update করে name সেভ করুন
+  await updateProfile(userCredential.user, {
+    displayName: name,
+  });
+
+  return userCredential;
+};
 
 export const login = (email, password) =>
   signInWithEmailAndPassword(auth, email, password);
